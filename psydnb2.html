@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSYDNB — Sample Pack by Koreg Music</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080a0f;
+      --surface: #0e1118;
+      --border: #1e2433;
+      --accent: #00f5a0;
+      --accent2: #7b2fff;
+      --text: #e8eaf0;
+      --muted: #5a6070;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- GRID BACKGROUND --- */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,245,160,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,245,160,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 80px 8vw;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(123,47,255,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .tag {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.1s;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(72px, 14vw, 180px);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.2s;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+      -webkit-text-stroke: 1px var(--accent);
+    }
+
+    .hero-sub {
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 420px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.4s;
+    }
+
+    .hero-meta {
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.55s;
+    }
+
+    .price-tag {
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--text);
+      letter-spacing: 0.05em;
+    }
+
+    .buy-btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--accent);
+      color: #000;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .buy-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent2);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .buy-btn:hover::before { transform: translateX(0); }
+    .buy-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,245,160,0.3); }
+    .buy-btn span { position: relative; z-index: 1; color: #fff; mix-blend-mode: normal; }
+    .buy-btn:hover span { color: #fff; }
+
+    /* Fix text color on hover */
+    .buy-btn { color: #000; }
+    .buy-btn:hover { color: #fff; }
+
+    /* --- STATS BAR --- */
+    .stats {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      overflow: hidden;
+    }
+
+    .stat {
+      flex: 1;
+      padding: 32px 40px;
+      border-right: 1px solid var(--border);
+      opacity: 0;
+      animation: fadeUp 0.5s ease forwards;
+    }
+
+    .stat:last-child { border-right: none; }
+    .stat:nth-child(1) { animation-delay: 0.6s; }
+    .stat:nth-child(2) { animation-delay: 0.7s; }
+    .stat:nth-child(3) { animation-delay: 0.8s; }
+    .stat:nth-child(4) { animation-delay: 0.9s; }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 40px;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    /* --- SECTION --- */
+    .section {
+      position: relative;
+      z-index: 1;
+      padding: 80px 8vw;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* --- FEATURES GRID --- */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .feature {
+      background: var(--surface);
+      padding: 32px;
+      transition: background 0.2s ease;
+    }
+
+    .feature:hover { background: #131720; }
+
+    .feature-icon {
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .feature-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* --- WAVEFORM VISUAL --- */
+    .waveform-section {
+      position: relative;
+      z-index: 1;
+      padding: 60px 8vw;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .waveform {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      height: 80px;
+      margin: 32px 0;
+    }
+
+    .bar {
+      flex: 1;
+      background: var(--accent);
+      opacity: 0.6;
+      border-radius: 2px;
+      animation: pulse 1.2s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scaleY(0.2); opacity: 0.3; }
+      to { transform: scaleY(1); opacity: 0.8; }
+    }
+
+    /* stagger bars */
+    .bar:nth-child(odd) { animation-delay: 0.1s; }
+    .bar:nth-child(3n) { animation-delay: 0.3s; }
+    .bar:nth-child(4n) { animation-delay: 0.5s; }
+    .bar:nth-child(5n) { animation-delay: 0.2s; }
+    .bar:nth-child(7n) { animation-delay: 0.4s; }
+
+    /* --- CTA BOTTOM --- */
+    .cta {
+      position: relative;
+      z-index: 1;
+      padding: 120px 8vw;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(0,245,160,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 100px);
+      line-height: 0.95;
+      margin-bottom: 32px;
+    }
+
+    .cta-title em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .cta-sub {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 48px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 32px 8vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+    }
+
+    /* --- ANIMATIONS --- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .stats { flex-direction: column; }
+      .stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .hero-meta { flex-direction: column; align-items: flex-start; gap: 20px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="tag">Koreg Music · Drum & Bass Sample Pack</div>
+    <h1 class="hero-title">PSY<span>DNB</span></h1>
+    <p class="hero-sub">A curated collection of psychedelic drum & bass sounds — dark atmospheres, rolling breaks, and heavy sub bass designed for serious producers.</p>
+    <div class="hero-meta">
+      <div class="price-tag">$50</div>
+      <a class="gumroad-button buy-btn" href="https://koregmusic.gumroad.com/l/psydnb">
+        <span>Get the Pack →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">175</div>
+      <div class="stat-label">BPM</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">WAV</div>
+      <div class="stat-label">Format</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Royalty Free</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">DnB</div>
+      <div class="stat-label">Genre</div>
+    </div>
+  </div>
+
+  <!-- WAVEFORM -->
+  <div class="waveform-section">
+    <div class="section-label">Preview</div>
+    <div class="waveform" id="waveform"></div>
+    <p style="color: var(--muted); font-size: 12px;">175bpm · Psychedelic Drum & Bass</p>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="section">
+    <div class="section-label">What's Inside</div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🥁</div>
+        <div class="feature-title">Drum Loops</div>
+        <div class="feature-desc">Rolling breaks and processed top loops, locked at 175bpm and ready to drop straight into your session.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🌀</div>
+        <div class="feature-title">Atmospheres</div>
+        <div class="feature-desc">Dark, psychedelic pads and textural layers that build tension and create space in the mix.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Bass & Sub</div>
+        <div class="feature-desc">Heavy sub bass hits and reese-style basses designed to translate on any system.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎛️</div>
+        <div class="feature-title">FX & Shots</div>
+        <div class="feature-desc">Risers, impacts, and one-shot hits to fill the gaps and add energy to your arrangements.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2 class="cta-title">Ready to<br /><em>Build Different</em></h2>
+    <p class="cta-sub">One purchase. Instant download. Royalty free forever.</p>
+    <a class="gumroad-button buy-btn" href="https://koregmusic.gumroad.com/l/psydnb">
+      <span>Buy PSYDNB — $50 →</span>
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Koreg Music</span>
+    <span>All samples royalty free · Instant digital delivery via Gumroad</span>
+  </footer>
+
+  <script>
+    // Generate waveform bars
+    const waveform = document.getElementById('waveform');
+    for (let i = 0; i < 80; i++) {
+      const bar = document.createElement('div');
+      bar.className = 'bar';
+      const h = Math.random() * 70 + 10;
+      bar.style.height = h + 'px';
+      bar.style.animationDuration = (0.8 + Math.random() * 0.8) + 's';
+      waveform.appendChild(bar);
+    }
+  </script>
+
+  <script src="https://gumroad.com/js/gumroad.js"></script>
+</body>
+</html>
