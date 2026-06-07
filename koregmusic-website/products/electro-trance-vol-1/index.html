@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electro Trance Vol. 1 | Kore-G</title>
+  <meta name="description" content="Electro Trance Vol. 1 sample pack by Kore-G.">
+  <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">Kore-G</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="https://koregmusic.gumroad.com" target="_blank" rel="noopener">Shop</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <div class="product-page">
+
+      <div class="product-page-media">
+        <!-- Replace with: <img src="/images/electro-trance-vol-1.jpg" alt="Electro Trance Vol 1"> -->
+        <div class="img-placeholder" style="aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:#1c1c1c;border:1px solid #2a2a2a;border-radius:6px;color:#555;font-size:0.8rem;">
+          [ Add product image here ]
+        </div>
+      </div>
+
+      <div class="product-page-info">
+        <p class="section-label">Electro Trance</p>
+        <h1>Electro Trance, Vol. 1</h1>
+
+        <!-- Add a short tagline/description here -->
+        <p class="tagline">[ Add description here ]</p>
+
+        <a href="https://koregmusic.gumroad.com/l/VCplF" class="btn btn-solid" target="_blank" rel="noopener" style="margin-bottom:32px;display:inline-block;">
+          Buy on Gumroad →
+        </a>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-trigger" onclick="toggleAccordion(this)" aria-expanded="false">
+              Pack Contents <span class="chevron">▼</span>
+            </button>
+            <div class="accordion-body">
+              <ul>
+                <!-- Fill in contents -->
+                <li>[ Add contents here ]</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <ul class="footer-social">
+      <li><a href="https://www.instagram.com/koregmusic/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.youtube.com/@koregmusic" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://www.tiktok.com/@koregmusic" target="_blank" rel="noopener">TikTok</a></li>
+    </ul>
+    <p>&copy; 2026 Kore-G. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  function toggleNav() { document.getElementById('nav-links').classList.toggle('open'); }
+  function toggleAccordion(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', !isOpen);
+    body.classList.toggle('open', !isOpen);
+  }
+</script>
+
+</body>
+</html>

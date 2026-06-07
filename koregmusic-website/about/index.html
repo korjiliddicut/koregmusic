@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Kore-G</title>
+  <meta name="description" content="Kore-G is a psytrance & bass music producer based in Melbourne, Australia.">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">Kore-G</a>
+    <button class="nav-toggle" aria-label="Menu" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about/" class="active">About</a></li>
+      <li><a href="https://koregmusic.gumroad.com" target="_blank" rel="noopener">Shop</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="about-page">
+    <p class="section-label">About</p>
+    <h1>Kore-G</h1>
+
+    <p>Kore-G is a psytrance &amp; bass music producer based in Melbourne, Australia.</p>
+
+    <p>His sample packs have been used by artists around the world including <span class="highlight">Vini Vici</span>, <span class="highlight">Reinier Zonneveld</span> &amp; <span class="highlight">Indira Paganotto</span>.</p>
+
+    <!-- Add more about text here -->
+    <p>Made with ❤️ in Melbourne, Australia.</p>
+
+    <div style="margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;">
+      <a href="https://www.instagram.com/koregmusic/" class="btn" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/@koregmusic" class="btn" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://www.tiktok.com/@koregmusic" class="btn" target="_blank" rel="noopener">TikTok</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <ul class="footer-social">
+      <li><a href="https://www.instagram.com/koregmusic/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://www.youtube.com/@koregmusic" target="_blank" rel="noopener">YouTube</a></li>
+      <li><a href="https://www.tiktok.com/@koregmusic" target="_blank" rel="noopener">TikTok</a></li>
+    </ul>
+    <p>&copy; 2026 Kore-G. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  function toggleNav() {
+    document.getElementById('nav-links').classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
