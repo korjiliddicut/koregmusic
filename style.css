@@ -374,6 +374,23 @@ footer {
   letter-spacing: 1px;
   transition: color 0.2s;
 }
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 14px;       /* space below the copyright line */
+  list-style: none;
+}
+
+.footer-links a {
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--accent); }
 
 .footer-social a:hover { color: var(--accent); }
 
