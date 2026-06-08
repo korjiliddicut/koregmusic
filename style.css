@@ -222,7 +222,7 @@ section + section { border-top: 1px solid var(--border); }
 }
 
 .product-card-body .price {
-  color: var(--accent);
+  color: #ffffff;
   font-size: 0.9rem;
   margin-bottom: 14px;
 }
@@ -283,11 +283,11 @@ section + section { border-top: 1px solid var(--border); }
 
 .product-page-info .price {
   font-size: 1.4rem;
-  color: var(--accent);
+  color: #ffffff;
   margin-bottom: 24px;
 }
 
-.product-page-info .price small { font-size: 0.75rem; color: var(--muted); }
+.product-page-info .price small { font-size: 0.75rem; color: #ffffff; }
 
 .product-page-info .btn { margin-bottom: 32px; }
 
