@@ -365,17 +365,23 @@ footer {
 .footer-social {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 20px;
   margin-bottom: 20px;
   list-style: none;
 }
 
 .footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--muted);
-  font-size: 0.8rem;
-  text-transform: none;
-  letter-spacing: 1px;
   transition: color 0.2s;
+}
+
+.footer-social a svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
 }
 .footer-links {
   display: flex;
