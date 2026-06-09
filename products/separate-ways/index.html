@@ -41,6 +41,14 @@
         <p class="section-label">Psytrance, Prog, Dirty Prog</p>
         <h1>Separate Ways, Sample Pack</h1>
         <p class="price">$25 AUD</p>
+        <div class="audio-player">
+          <audio class="ap-audio" src="/audio/separate-ways-preview.mp3" preload="none"></audio>
+          <button class="ap-btn ap-play" aria-label="Play"></button>
+          <span class="ap-time ap-current">0:00</span>
+          <div class="ap-bar"><div class="ap-fill"></div></div>
+          <span class="ap-time ap-duration">0:00</span>
+          <button class="ap-btn ap-mute" aria-label="Mute"></button>
+        </div>
         <a class="btn btn-solid" href="https://koregmusic.gumroad.com/l/separatewayspack?wanted=true" data-gumroad-overlay-checkout="true" style="margin-bottom:32px;display:inline-block;">Buy Now</a>
 
         <div class="description">
@@ -95,6 +103,7 @@
 </footer>
 
 <script src="https://gumroad.com/js/gumroad.js"></script>
+<script src="/player.js"></script>
 <script>
   function toggleNav() {
     document.getElementById('nav-links').classList.toggle('open');
