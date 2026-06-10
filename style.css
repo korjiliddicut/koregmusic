@@ -485,7 +485,7 @@ footer p { color: var(--muted); font-size: 0.75rem; }
     transform: translateX(-50%);
   }
 
-  .nav-logo img { height: 36px; }
+  .nav-logo img { height: 48px; }
 
   .nav-links {
     display: none;
